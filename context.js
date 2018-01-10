@@ -16,15 +16,20 @@ var bmo = new Robot("B-Mo");
 var wall_e = new Robot("Wall-E");
 
 
-// #1
-console.log(  );
+// #1 - invoke add() w/ args: 0, 1
 
-// #2  
-console.log(  );
+console.log(add(0, 1));
 
-// #3
-console.log(  );
+// #2  - invoke add() w/in context of voltron
 
-// #4
+console.log(add.call(voltron, 2, 3));
 
-console.log(  );
+// #3 - invoke add() w/in contet of optimus
+
+let optimusArgs = [20, 30];
+console.log(add.apply(optimus, optimusArgs));
+
+// #4 - bind add() to new function name calculate w/ context of bender
+
+let calculate = add.bind(bender);
+console.log(calculate("drinking ", "beer"));
